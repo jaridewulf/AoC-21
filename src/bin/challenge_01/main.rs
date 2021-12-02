@@ -37,5 +37,12 @@ fn main() {
         .map(|line| line.unwrap().parse::<u16>().unwrap())
         .collect();
 
-    println!("{:?}", star_two(content));
+    println!(
+        "the answer of the first problem is: {:?}",
+        star_one(content.clone())
+    );
+    println!(
+        "the answer of the second problem is: {:?}",
+        star_two(content)
+    );
 }
