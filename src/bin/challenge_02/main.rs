@@ -8,11 +8,11 @@ fn star_one(content: Vec<String>) -> i32 {
     let mut h_pos = 0;
 
     for i in 0..content.len() {
-        let mut toCheck: Vec<_> = content[i].split_whitespace().collect();
-        match toCheck[0] {
-            "forward" => h_pos = h_pos + toCheck[1].parse::<i32>().unwrap(),
-            "down" => depth = depth + toCheck[1].parse::<i32>().unwrap(),
-            "up" => depth = depth - toCheck[1].parse::<i32>().unwrap(),
+        let to_check: Vec<_> = content[i].split_whitespace().collect();
+        match to_check[0] {
+            "forward" => h_pos = h_pos + to_check[1].parse::<i32>().unwrap(),
+            "down" => depth = depth + to_check[1].parse::<i32>().unwrap(),
+            "up" => depth = depth - to_check[1].parse::<i32>().unwrap(),
             _ => panic!("Oops, I failed"),
         }
     }
@@ -25,21 +25,20 @@ fn star_two(content: Vec<String>) -> i32 {
     let mut aim = 0;
 
     for i in 0..content.len() {
-        let mut toCheck: Vec<_> = content[i].split_whitespace().collect();
-        match toCheck[0] {
+        let to_check: Vec<_> = content[i].split_whitespace().collect();
+        match to_check[0] {
             "forward" => {
-                h_pos = h_pos + toCheck[1].parse::<i32>().unwrap();
-                depth = depth + toCheck[1].parse::<i32>().unwrap() * aim;
+                h_pos = h_pos + to_check[1].parse::<i32>().unwrap();
+                depth = depth + to_check[1].parse::<i32>().unwrap() * aim;
             }
             "down" => {
-                aim = aim + toCheck[1].parse::<i32>().unwrap();
+                aim = aim + to_check[1].parse::<i32>().unwrap();
             }
             "up" => {
-                aim = aim - toCheck[1].parse::<i32>().unwrap();
+                aim = aim - to_check[1].parse::<i32>().unwrap();
             }
             _ => panic!("Oops, I failed"),
         }
-        println!("{:?} {:?}", h_pos, depth);
     }
     depth * h_pos
 }
